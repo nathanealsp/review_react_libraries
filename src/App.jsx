@@ -1,23 +1,50 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 
-// LEVEL 3 COMPONENT
+// CREATE A CONTEXT
+const MyContext = React.createContext();
+
+// CREATE A CONTEXT PROVIDER COMPONENT (JUST LIKE REDUX)
+class MyProvider extends Component {
+  state = {
+    name: "Nathaneals",
+    topic: "New Context API",
+    talks: 100,
+    notes: ["react@next", "react-dom@next"]
+  };
+
+  render() {
+    return (
+      <MyContext.Provider value={{ state: this.state }}>
+        {this.props.children}
+      </MyContext.Provider>
+    );
+  }
+}
+
+// LEVEL 4 COMPONENT
 class Teacher extends Component {
   render() {
     return (
       <div>
-        My name is <strong>{this.props.person.name}</strong>
+        <MyContext.Consumer>
+          {context => (
+            <p>
+              Talk is the about the <strong>{context.state.name}</strong>
+            </p>
+          )}
+        </MyContext.Consumer>
       </div>
     );
   }
 }
 
-// LEVEL 2 COMPONENT
+// LEVEL 3 COMPONENT
 class Topic extends Component {
   render() {
     return (
       <div>
-        Talk is the about the <strong>{this.props.data.topic}</strong>
-        <Teacher person={this.props.data} />
+        Talk is the about the <strong>Hey</strong>
+        <Teacher />
       </div>
     );
   }
@@ -26,20 +53,16 @@ class Topic extends Component {
 // MAIN COMPONENT
 
 class App extends Component {
-  state = {
-    name: "Nathaneals",
-    topic: "New Context API",
-    talks: 100,
-    notes: ["react@next", "react-dom@next"]
-  };
   render() {
     return (
-      <div className="App">
-        <p>
-          the <em>New React 16.3.1</em>
-        </p>
-        <Topic data={this.state} />
-      </div>
+      <MyProvider>
+        <div className="App">
+          <p>
+            the <em>New React 16.3.1</em>
+          </p>
+          <Topic />
+        </div>
+      </MyProvider>
     );
   }
 }
