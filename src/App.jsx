@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 // CREATE A CONTEXT
 const MyContext = React.createContext();
@@ -14,7 +14,16 @@ class MyProvider extends Component {
 
   render() {
     return (
-      <MyContext.Provider value={{ state: this.state }}>
+      <MyContext.Provider
+        value={{
+          state: this.state,
+          talksGiven: () => {
+            this.setState({
+              talks: this.state.talks + 1
+            });
+          }
+        }}
+      >
         {this.props.children}
       </MyContext.Provider>
     );
@@ -28,9 +37,15 @@ class Teacher extends Component {
       <div>
         <MyContext.Consumer>
           {context => (
-            <p>
-              Talk is the about the <strong>{context.state.name}</strong>
-            </p>
+            <Fragment>
+              <p>
+                I have given <strong>{context.state.talks}+</strong> talks
+              </p>
+              <button onClick={context.talksGiven}>Talkative</button>
+              <p>
+                Requirements: <strong>{context.state.notes}</strong>
+              </p>
+            </Fragment>
           )}
         </MyContext.Consumer>
       </div>
@@ -43,7 +58,13 @@ class Topic extends Component {
   render() {
     return (
       <div>
-        Talk is the about the <strong>Hey</strong>
+        <MyContext.Consumer>
+          {context => (
+            <p>
+              My name: <strong>{context.state.name}</strong>
+            </p>
+          )}
+        </MyContext.Consumer>
         <Teacher />
       </div>
     );
@@ -51,15 +72,18 @@ class Topic extends Component {
 }
 
 // MAIN COMPONENT
-
 class App extends Component {
   render() {
     return (
       <MyProvider>
         <div className="App">
-          <p>
-            the <em>New React 16.3.1</em>
-          </p>
+          <MyContext.Consumer>
+            {context => (
+              <p>
+                Today's Topic: <strong>{context.state.topic}+</strong>
+              </p>
+            )}
+          </MyContext.Consumer>
           <Topic />
         </div>
       </MyProvider>
