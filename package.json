@@ -1,17 +1,26 @@
 {
-  "name": "react16.3__review",
+  "name": "review-react-libriaries",
   "version": "0.0.3",
-  "repository": "https://github.com/Nytheneals/REACT16.3.Review.git",
+  "repository": "https://github.com/Nytheneals/review-react-libraries.git",
   "private": true,
   "dependencies": {
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "downshift": "^3.2.7",
+    "prop-types": "^15.7.2",
+    "react": "next",
+    "react-dom": "next",
+    "react-scripts": "next"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "clear": "rm -rf node_modules && npm install && npm run start"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
