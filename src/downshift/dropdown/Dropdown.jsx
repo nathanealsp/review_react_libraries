@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import DownShift from 'downshift';
 import AppContext from '../../context/AppContext';
 
-const SelectBox = () => {
+const Dropdown = () => {
   const { accountUsers: users } = useContext(AppContext);
   const [selectedUser, setSelectedUser] = useState('select a name');
   const [selectedUserInfo, setSelectedUserInfo] = useState(null);
@@ -61,4 +61,4 @@ const SelectBox = () => {
   );
 };
 
-export default SelectBox;
+export default Dropdown;

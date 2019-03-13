@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Router, Link } from '@reach/router';
 import SearchBar from './downshift/searchbar/SearchBar';
-import SelectBox from './downshift/selectbox/SelectBox';
+import Dropdown from './downshift/dropdown/Dropdown';
 // import AppContext from './context/AppContext';
 // MAIN COMPONENT
-const App = ({ children }) => {
+const App = () => {
   const [title] = useState('DownShift use cases');
 
   return (
@@ -25,14 +25,14 @@ const App = ({ children }) => {
           </Link>
         </button>
         <button>
-          <Link className="linkStyle" to="selectbox">
-            Select Box
+          <Link className="linkStyle" to="dropdown">
+            Drop down
           </Link>
         </button>
       </div>
       <Router>
         <SearchBar path="/" />
-        <SelectBox path="selectbox" />
+        <Dropdown path="dropdown" />
       </Router>
     </div>
   );
