@@ -14,6 +14,7 @@ const SearchBox = () => {
 
   return (
     <div className="searchbar">
+      {/* Search Box */}
       <DownShift
         itemToString={item => (item ? item.name : '')}
         onChange={handleSelected}
@@ -62,7 +63,20 @@ const SearchBox = () => {
           </div>
         )}
       </DownShift>
-      {selectedUser ? JSON.stringify(selectedUser) : null}
+      {selectedUser ? (
+        <div
+          style={{
+            marginTop: '40px',
+            background: 'var(--dark)',
+            color: 'var(--light',
+            padding: selectedUser && '10px',
+            borderRadius: '3px',
+            border: selectedUser && '2px solid orange',
+          }}
+        >
+          {JSON.stringify(selectedUser)}
+        </div>
+      ) : null}
     </div>
   );
 };

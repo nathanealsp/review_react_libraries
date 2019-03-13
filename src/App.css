@@ -121,7 +121,7 @@ button {
   justify-self: center;
 }
 
-button>span {
+button > span {
   display: flex;
 }
 
@@ -252,4 +252,21 @@ input[type='checkbox'] {
   color: var(--dark);
   font-weight: bolder;
   font-style: normal;
+}
+
+.links {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+}
+
+.linkStyle {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: var(--light);
+  text-decoration: none;
 }

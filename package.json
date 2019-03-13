@@ -4,6 +4,7 @@
   "repository": "https://github.com/Nytheneals/review-react-libraries.git",
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "downshift": "^3.2.7",
     "prop-types": "^15.7.2",
     "react": "next",
