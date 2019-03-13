@@ -7,3 +7,6 @@ This provides a solution to "autocomplete/typeahead/dropdown/select/combobox" ty
 It uses the
 > The “Render Prop” pattern.
 > The “Controlled Props” pattern.
+
+### Session One
+Worked on a searchbar Component.

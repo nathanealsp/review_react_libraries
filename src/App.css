@@ -71,12 +71,11 @@ label {
   grid-gap: 5px;
 }
 
-input {
+/* input {
   font-size: 1rem;
   outline: none;
   height: 45px;
-  /* width: 100%; */
-  width: 50%;
+  width: 100%;
   background-color: #fff;
   border: 1px solid #dedede;
   border-radius: 3px;
@@ -84,7 +83,7 @@ input {
   padding: 0.95em;
   margin-bottom: 10px;
   text-transform: capitalize;
-}
+} */
 
 select {
   border-radius: 0;
@@ -194,14 +193,63 @@ input[type='checkbox'] {
   border: 2px soild red;
 }
 
-li {
-  list-style: none;
-  width: 50%;
-  padding: 10px 2px;
-  background: var(--gray);
-  color: var(--light);
+.searchbar-input {
+  font-size: 1rem;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  color: #221924;
+  padding: 0.95em;
+  margin-bottom: 10px;
+  text-transform: capitalize;
 }
 
-ul:nth-last-child() {
-  background: yellow;
+.searchbar-input-open {
+  font-size: 1rem;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  color: #221924;
+  padding: 0.95em;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.searchbar {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.items-container {
+  position: absolute;
+  top: 45px;
+  background: var(--gray);
+  color: var(--light);
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.itemStyle {
+  padding: 10px 2px;
+}
+
+.items {
+  font-style: italic;
+}
+
+.items-selected {
+  background: var(--light);
+  color: var(--dark);
+  font-weight: bolder;
+  font-style: normal;
 }
